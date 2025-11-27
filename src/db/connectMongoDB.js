@@ -8,13 +8,8 @@ const clientOptions = {
 
 export const connectMongoDB = async () => {
   try {
-    const user = getEnvVar(ENV_VARS.DB_USER);
-    const password = getEnvVar(ENV_VARS.DB_PASSWORD);
-    const dbName = getEnvVar(ENV_VARS.DB_NAME);
-    const host = getEnvVar(ENV_VARS.DB_HOST);
-    const url = `mongodb+srv://${user}:${password}@${host}/${dbName}?appName=Cluster0`;
-
-    await mongoose.connect(url, clientOptions);
+    const mongoUrl = getEnvVar(ENV_VARS.MONGO_URL);
+    await mongoose.connect(mongoUrl, clientOptions);
     console.log('✅ MongoDB connection established successfully');
   } catch (error) {
     console.error('❌ Failed to connect to MongoDB:', error.message);
