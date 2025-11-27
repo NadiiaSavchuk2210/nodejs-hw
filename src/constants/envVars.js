@@ -1,0 +1,8 @@
+export const ENV_VARS = {
+  PORT: 'PORT',
+  NODE_ENV: 'NODE_ENV',
+  DB_USER: 'DB_USER',
+  DB_PASSWORD: 'DB_PASSWORD',
+  DB_HOST: 'DB_HOST',
+  DB_NAME: 'DB_NAME',
+};
