@@ -1,4 +1,3 @@
-import { ENV_VARS } from '../constants/envVars.js';
 import { HttpError } from 'http-errors';
 
 export const errorHandler = (err, req, res, next) => {
@@ -10,7 +9,7 @@ export const errorHandler = (err, req, res, next) => {
     });
   }
 
-  const isProd = ENV_VARS.NODE_ENV === 'production';
+  const isProd = process.env.NODE_ENV === 'production';
 
   res.status(500).json({
     message: isProd

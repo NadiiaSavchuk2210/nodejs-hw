@@ -1,16 +1,14 @@
 import express from 'express';
 import cors from 'cors';
 import 'dotenv/config';
-import { getEnvVar } from './helper/getEnvVar.js';
-import { ENV_VARS } from './constants/envVars.js';
 import { connectMongoDB } from './db/connectMongoDB.js';
 import { logger } from './middleware/logger.js';
 import { notFoundHandler } from './middleware/notFoundHandler.js';
 import { errorHandler } from './middleware/errorHandler.js';
-import router from './routes/index.js';
+import router from './routes/notesRoutes.js';
 
 const app = express();
-const PORT = getEnvVar(ENV_VARS.PORT, 3000);
+const PORT = process.env.PORT ?? 3000;
 
 // Global middleware setup
 app.use(logger(), express.json(), cors());

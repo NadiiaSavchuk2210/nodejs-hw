@@ -1,6 +1,4 @@
 import mongoose from 'mongoose';
-import { ENV_VARS } from '../constants/envVars.js';
-import { getEnvVar } from '../helper/getEnvVar.js';
 
 const clientOptions = {
   serverApi: { version: '1', strict: true, deprecationErrors: true },
@@ -8,7 +6,7 @@ const clientOptions = {
 
 export const connectMongoDB = async () => {
   try {
-    const mongoUrl = getEnvVar(ENV_VARS.MONGO_URL);
+    const mongoUrl = process.env.MONGO_URL;
     await mongoose.connect(mongoUrl, clientOptions);
     console.log('✅ MongoDB connection established successfully');
   } catch (error) {
