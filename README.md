@@ -1,19 +1,21 @@
-# 02-mongodb
+# 03-validation
 
-Express server with MongoDB (Mongoose) and full CRUD for notes.
+Express server with MongoDB (Mongoose) and full CRUD for notes with pagination, text search, and request validation.
 
 ---
 
-## Live Server
+## Live
 
-**[Render Deployment](https://zero2-mongodb-867b.onrender.com)**
+**[Render Deployment](https://zero3-validation-umh1.onrender.com)**
 
 ---
 
 ## API
 
-- `GET /notes`
-- `GET /notes/:noteId`
-- `POST /notes`
-- `PATCH /notes/:noteId`
-- `DELETE /notes/:noteId`
+- `GET /notes` - Get all notes (pagination, search, tag filter)
+- `GET /notes/:noteId` - Get note by ID
+- `POST /notes` - Create note
+- `PATCH /notes/:noteId` - Update note
+- `DELETE /notes/:noteId` - Delete note
+
+**Tags:** `Work, Personal, Meeting, Shopping, Ideas, Travel, Finance, Health, Important, Todo`
