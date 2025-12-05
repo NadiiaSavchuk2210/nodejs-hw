@@ -6,6 +6,7 @@ import { logger } from './middleware/logger.js';
 import { notFoundHandler } from './middleware/notFoundHandler.js';
 import { errorHandler } from './middleware/errorHandler.js';
 import router from './routes/notesRoutes.js';
+import { errors } from 'celebrate';
 
 const app = express();
 const PORT = process.env.PORT ?? 3000;
@@ -18,6 +19,7 @@ app.use(router);
 
 // Fallback middlewares
 app.use(notFoundHandler);
+app.use(errors());
 app.use(errorHandler);
 
 // Initialize database connection
