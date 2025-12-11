@@ -1,21 +1,22 @@
-# 03-validation
+# 04-auth
 
-Express server with MongoDB (Mongoose) and full CRUD for notes with pagination, text search, and request validation.
-
----
+Express API with authentication (register, login, logout, refresh), secure cookies, sessions, and private notes.
 
 ## Live
 
-**[Render Deployment](https://zero3-validation-umh1.onrender.com)**
+**Render:** (https://zero4-auth-feyd.onrender.com)
 
----
+## Auth API
 
-## API
+- POST /auth/register
+- POST /auth/login
+- POST /auth/refresh
+- POST /auth/logout
 
-- `GET /notes` - Get all notes (pagination, search, tag filter)
-- `GET /notes/:noteId` - Get note by ID
-- `POST /notes` - Create note
-- `PATCH /notes/:noteId` - Update note
-- `DELETE /notes/:noteId` - Delete note
+## Notes API (auth required)
 
-**Tags:** `Work, Personal, Meeting, Shopping, Ideas, Travel, Finance, Health, Important, Todo`
+- GET /notes
+- GET /notes/:noteId
+- POST /notes
+- PATCH /notes/:noteId
+- DELETE /notes/:noteId
