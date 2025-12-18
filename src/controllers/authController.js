@@ -9,7 +9,6 @@ import fs from 'node:fs/promises';
 import handlebars from 'handlebars';
 import { sendEmail } from '../utils/sendMail.js';
 import '../templates/helpers/helpers.js';
-import { SRC_DIR } from '../constants/path.js';
 
 export const registerUser = async (req, res, next) => {
   const { email, password } = req.body;
@@ -106,11 +105,8 @@ export const requestResetEmail = async (req, res, next) => {
     { expiresIn: '15m' },
   );
 
-  const templatePath = path.join(
-    SRC_DIR,
-    'templates',
-    'reset-password-email.html',
-  );
+  const templatePath = path.resolve('src/templates/reset-password-email.html');
+
   const templateSource = await fs.readFile(templatePath, 'utf-8');
 
   const template = handlebars.compile(templateSource);
